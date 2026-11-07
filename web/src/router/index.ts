@@ -12,33 +12,33 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
     },
     {
       path: '/providers',
       name: 'providers',
-      component: ProvidersView
+      component: ProvidersView,
     },
     {
       path: '/providers/:id',
       name: 'provider-detail',
-      component: ProviderDetailView
+      component: ProviderDetailView,
     },
     {
       path: '/help',
       name: 'help',
-      component: HelpView
+      component: HelpView,
     },
     {
       path: '/register',
       name: 'register',
-      component: RegisterView
+      component: RegisterView,
     },
     {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
-      component: NotFoundView
-    }
+      component: NotFoundView,
+    },
   ],
 })
 

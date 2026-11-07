@@ -42,7 +42,11 @@ watch(() => props.id, load, { immediate: true })
       <dt>Languages</dt>
       <dd>{{ provider.languages.join(', ') }}</dd>
       <dt>Price</dt>
-      <dd>{{ provider.priceTo === 0 ? 'Free' : '$' + provider.priceFrom + ' to $' + provider.priceTo }}</dd>
+      <dd>
+        {{
+          provider.priceTo === 0 ? 'Free' : '$' + provider.priceFrom + ' to $' + provider.priceTo
+        }}
+      </dd>
       <dt>Sessions</dt>
       <dd>{{ provider.delivery }}</dd>
       <dt>Contact</dt>

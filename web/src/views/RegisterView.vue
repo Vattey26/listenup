@@ -1,18 +1,19 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { useAuthStore } from '@/stores/auth';
+import { useAuthStore } from '@/stores/auth'
 import { validationRegister, type RegisterForm } from '../utils/validation'
 
 const auth = useAuthStore()
 const router = useRouter()
 
-const form = reactive<RegisterForm>({ username: '', password: '', confirm: ''})
-const touched = reactive({ username: false, password: false, confirm: false})
+const form = reactive<RegisterForm>({ username: '', password: '', confirm: '' })
+const touched = reactive({ username: false, password: false, confirm: false })
 const submitted = ref(false)
 
 const errors = computed(() => validationRegister(form))
-const show = (field: keyof RegisterForm) => (touched[field] || submitted.value) && errors.value[field]
+const show = (field: keyof RegisterForm) =>
+  (touched[field] || submitted.value) && errors.value[field]
 
 async function onSubmit() {
   submitted.value = true
@@ -28,7 +29,7 @@ async function onSubmit() {
   <form novalidate @submit.prevent="onSubmit">
     <div>
       <label for="username">Username</label>
-      <input 
+      <input
         id="username"
         v-model="form.username"
         autocomplete="username"
