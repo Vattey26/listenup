@@ -1,5 +1,5 @@
 export interface Conversation {
-  id: Number
+  id: number
   status: 'WAITING' | 'ACTIVE' | 'CLOSED'
   memberId: number
   volunteerId: number | null
