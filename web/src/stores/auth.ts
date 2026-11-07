@@ -29,9 +29,28 @@ export const useAuthStore = defineStore ('auth', () => {
         }
     }
 
+    async function login(username: string): Promise<boolean> {
+        loading.value = true
+        error.value = null
+        try {
+            const match = (await findUserByUsername(findUserByUsername.toLowerCase()))[0]
+            if (!match || !match.active) {
+                error.value = 'No active user with that username'
+                return false
+            }
+            user.value = match
+            return true
+        } catch (e) {
+            error.value = e instanceof Error ? e.message : "Something went wrong"
+            return false
+        } finally {
+            loading.value = false
+        }
+    }
+
     function logout() {
         user.value = null
     }
 
-    return { user, loading, error, isLoggedIn, register, logout}
+    return { user, loading, error, isLoggedIn, register, login, logout}
 })
