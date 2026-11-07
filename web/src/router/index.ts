@@ -29,6 +29,7 @@ const router = createRouter({
       path: '/providers/:id',
       name: 'provider-detail',
       component: ProviderDetailView,
+      props: true
     },
     {
       path: '/help',

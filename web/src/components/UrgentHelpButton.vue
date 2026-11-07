@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <RouterLink to="/help" class="urgent"> Uregent help </RouterLink>
+  <RouterLink to="/help" class="urgent"> Urgent help </RouterLink>
 </template>
 
 <style scoped>

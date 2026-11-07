@@ -16,7 +16,7 @@ const message = [
   <label for="msg">Message</label>
   <input
     id="msg"
-    disabled placeholder="Chat is a static sceen in M1"
+    disabled placeholder="Chat is a static screen in M1"
   />
   <button type="button" disabled>Send</button>
 </template>

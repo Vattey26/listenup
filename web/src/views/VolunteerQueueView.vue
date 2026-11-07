@@ -33,7 +33,7 @@ onMounted(load)
   <ul v-else>
     <li v-for="c in items" :key="c.id">
       Request {{ c.id }}, waiting since {{ c.createdAt }}
-      <button type="button" disable>Accept (next milstone)</button>
+      <button type="button" disabled>Accept (next milestone)</button>
     </li>
   </ul>
 </template>

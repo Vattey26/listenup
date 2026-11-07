@@ -4,6 +4,6 @@ import { RouterLink } from 'vue-router'
 
 <template>
   <h1>Page not found</h1>
-  <p>Tahe page does not exist.</p>
+  <p>The page does not exist.</p>
   <RouterLink to="/">Go to home page</RouterLink>
 </template>

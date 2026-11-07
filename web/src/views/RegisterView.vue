@@ -46,7 +46,7 @@ async function onSubmit() {
         id="password"
         v-model="form.password"
         type="password"
-        autocomplete="password"
+        autocomplete="new-password"
         :aria-invalid="!!show('password')"
         :aria-describedby="show('password') ? 'password-error' : undefined"
         @blur="touched.password = true"
