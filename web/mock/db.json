@@ -1,0 +1,14 @@
+{
+  "providers": [
+    { "id": 1, "name": "Sample Community Clinic", "type": "CLINIC", "province": "Phnom Penh", "languages": ["Khmer", "English"], "contact": "Sample contact", "priceFrom": 0, "priceTo": 0, "delivery": "IN_PERSON", "verified": true },
+    { "id": 2, "name": "Sample Counselling Centre", "type": "NGO", "province": "Siem Reap", "languages": ["Khmer"], "contact": "Sample contact", "priceFrom": 0, "priceTo": 0, "delivery": "BOTH", "verified": true },
+    { "id": 3, "name": "Sample Therapist A", "type": "THERAPIST", "province": "Phnom Penh", "languages": ["English"], "contact": "Sample contact", "priceFrom": 15, "priceTo": 30, "delivery": "ONLINE", "verified": true },
+    { "id": 4, "name": "Sample Therapist B", "type": "THERAPIST", "province": "Battambang", "languages": ["Khmer", "English"], "contact": "Sample contact", "priceFrom": 10, "priceTo": 25, "delivery": "BOTH", "verified": true },
+    { "id": 5, "name": "Sample Youth Support NGO", "type": "NGO", "province": "Phnom Penh", "languages": ["Khmer"], "contact": "Sample contact", "priceFrom": 0, "priceTo": 0, "delivery": "ONLINE", "verified": true },
+    { "id": 6, "name": "Sample Unverified Provider", "type": "CLINIC", "province": "Kampot", "languages": ["Khmer"], "contact": "Sample contact", "priceFrom": 20, "priceTo": 40, "delivery": "IN_PERSON", "verified": false }
+  ],
+  "helplines": [
+    { "id": 1, "name": "Sample Helpline A", "phone": "000 000 000", "hours": "Placeholder", "languages": ["Khmer"], "priority": 1, "lastVerified": "2026-01-01" },
+    { "id": 2, "name": "Sample Helpline B", "phone": "000 000 001", "hours": "Placeholder", "languages": ["Khmer", "English"], "priority": 2, "lastVerified": "2026-01-01" }
+  ]
+}
