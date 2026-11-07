@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { getHelplines } from '../api/helplines'
-import type { Helpline } from '../types/helpline'
+import type { Helpline } from '../types/helplines'
 
 const fallback: Helpline[] = [
   { id: 1, name: 'Sample Helpline A', phone: '000 000 000', hours: 'Placeholder', languages: ['Khmer'], priority: 1, lastVerified: '2026-01-01' },
