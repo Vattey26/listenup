@@ -4,6 +4,7 @@ import ProvidersView from '../views/ProvidersView.vue'
 import ProviderDetailView from '../views/ProviderDetailView.vue'
 import HelpView from '../views/HelpView.vue'
 import RegisterView from '../views/RegisterView.vue'
+import NotFoundView from '../views/NotFoundView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,11 @@ const router = createRouter({
       path: '/register',
       name: 'register',
       component: RegisterView
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      component: NotFoundView
     }
   ],
 })
