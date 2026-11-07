@@ -1,7 +1,7 @@
 import { ref, computed} from 'vue'
 import { defineStore } from 'pinia'
 import type { Provider } from '../types/provider'
-import { fetchProviders, fetchProvider } from '../services/providerService'
+import { fetchProviders, fetchProvider } from '../api/providerService'
 
 export const useProvidersStore = defineStore('provider', () => {
     const items = ref<Provider[]>([])

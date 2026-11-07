@@ -10,5 +10,20 @@
   "helplines": [
     { "id": 1, "name": "Sample Helpline A", "phone": "000 000 000", "hours": "Placeholder", "languages": ["Khmer"], "priority": 1, "lastVerified": "2026-01-01" },
     { "id": 2, "name": "Sample Helpline B", "phone": "000 000 001", "hours": "Placeholder", "languages": ["Khmer", "English"], "priority": 2, "lastVerified": "2026-01-01" }
+  ],
+  "users": [
+    { "id": 1, "username": "member_01", "role": "MEMBER", "approved": true, "active": true },
+    { "id": 2, "username": "volunteer_01", "role": "VOLUNTEER", "approved": true, "active": true },
+    { "id": 3, "username": "volunteer_02", "role": "VOLUNTEER", "approved": false, "active": true },
+    { "id": 4, "username": "admin_01", "role": "ADMIN", "approved": true, "active": true },
+    { "id": 5, "username": "member_02", "role": "MEMBER", "approved": true, "active": true }
+  ],
+  "conversations": [
+    { "id": 1, "status": "ACTIVE", "memberId": 1, "volunteerId": 2, "createdAt": "2026-11-01T10:00:00Z", "closedAt": null },
+    { "id": 2, "status": "WAITING", "memberId": 5, "volunteerId": null, "createdAt": "2026-11-01T10:05:00Z", "closedAt": null }
+  ],
+  "messages": [
+    { "id": 1, "conversationId": 1, "senderId": 2, "body": "Hello, I am here to listen.", "sentAt": "2026-11-01T10:01:00Z" },
+    { "id": 2, "conversationId": 1, "senderId": 1, "body": "Message text placeholder.", "sentAt": "2026-11-01T10:02:00Z" }
   ]
 }

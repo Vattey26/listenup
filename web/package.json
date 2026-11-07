@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
-    "mock": "json-server --watch mock/db.json --port 3001",
+    "api": "json-server --watch mock/db.json --port 3001",
     "preview": "vite preview",
     "test:unit": "vitest",
     "build-only": "vite build",
