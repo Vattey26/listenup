@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
-import { getWaitingConversation } from '@/api/conversations';
-import type { Conversation } from '@/types/conversation';
+import { onMounted, ref } from 'vue'
+import { getWaitingConversation } from '../api/conversations'
+import type { Conversation } from '../types/conversation'
 
 const items = ref<Conversation[]>([])
 const loading = ref(false)
@@ -13,7 +13,7 @@ async function load() {
   try {
     items.value = await getWaitingConversation()
   } catch (e) {
-    error.value = e instanceof Error ? e.message: 'Something went wrong'
+    error.value = e instanceof Error ? e.message : 'Something went wrong'
   } finally {
     loading.value = false
   }
@@ -23,17 +23,20 @@ onMounted(load)
 </script>
 
 <template>
-  <h1>Waiting requests</h1>
-  <p v-if="loading">Loading requests...</p>
-  <div v-else-if="error" role="alert">
-    <p>{{ error }}</p>
-    <button type="button" @click="load">Try again</button>
+  <div class="w page narrow">
+    <h1>Waiting requests</h1>
+    <p v-if="loading" class="stt">Loading requests...</p>
+    <div v-else-if="error" class="stt" role="alert">
+      <p>{{ error }}</p>
+      <button type="button" class="btn s" @click="load">Try again</button>
+    </div>
+    <p v-else-if="items.length === 0" class="stt">No one is waiting right now.</p>
+    <ul v-else class="list stack" style="grid-template-columns: 1fr">
+      <li v-for="c in items" :key="c.id" class="cd">
+        <h3>Request {{ c.id }}</h3>
+        <p>Waiting since {{ c.createdAt }}</p>
+        <p style="margin-top: 12px"><button type="button" class="btn s" disabled>Accept (next milestone)</button></p>
+      </li>
+    </ul>
   </div>
-  <p v-else-if="items.length === 0">No one is waiting right now.</p>
-  <ul v-else>
-    <li v-for="c in items" :key="c.id">
-      Request {{ c.id }}, waiting since {{ c.createdAt }}
-      <button type="button" disabled>Accept (next milestone)</button>
-    </li>
-  </ul>
 </template>

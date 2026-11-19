@@ -71,6 +71,13 @@ const router = createRouter({
       meta: { requiresAuth: true, roles: ['VOLUNTEER'], requiresApproved: true }
     }
   ],
+  scrollBehavior(to) {
+    if (to.hash) return {
+      el: to.hash,
+      behavior: 'smooth'
+    }
+    return { top: 0 }
+  }
 })
 
 declare module 'vue-router' {
@@ -93,5 +100,6 @@ router.beforeEach((to) => {
     return { name: 'home' }
   }
 })
+
 
 export default router
