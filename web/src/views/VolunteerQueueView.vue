@@ -34,8 +34,10 @@ onMounted(load)
     <ul v-else class="list stack" style="grid-template-columns: 1fr">
       <li v-for="c in items" :key="c.id" class="cd">
         <h3>Request {{ c.id }}</h3>
-        <p>Waiting since {{ c.createdAt }}</p>
-        <p style="margin-top: 12px"><button type="button" class="btn s" disabled>Accept (next milestone)</button></p>
+        <p>Waiting since {{ new Date(c.createdAt).toLocaleString() }}</p>
+        <p style="margin-top: 12px">
+          <button type="button" class="btn s" disabled>Accept (next milestone)</button>
+        </p>
       </li>
     </ul>
   </div>
