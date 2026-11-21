@@ -26,31 +26,30 @@ watch(() => props.id, load, { immediate: true })
 </script>
 
 <template>
-  <RouterLink to="/providers">Back to list</RouterLink>
+  <div class="w page narrow">
+    <RouterLink class="back" to="/providers">&larr; Back to list</RouterLink>
 
-  <p v-if="loading">Loading provider...</p>
-  <div v-else-if="error" role="alert">
-    <p>{{ error }}</p>
-    <button type="button" @click="load">Try again</button>
+    <p v-if="loading" class="stt">Loading provider...</p>
+    <div v-else-if="error" class="stt" role="alert">
+      <p>{{ error }}</p>
+      <button type="button" class="btn s" @click="load">Try again</button>
+    </div>
+    <article v-else-if="provider" class="cd">
+      <span v-if="provider.verified" class="bd">Verified</span>
+      <h1 style="margin-top: 12px">{{ provider.name }}</h1>
+      <p>{{ provider.type }}</p>
+      <dl class="dl">
+        <dt>Province</dt>
+        <dd>{{ provider.province }}</dd>
+        <dt>Languages</dt>
+        <dd>{{ provider.languages.join(', ') }}</dd>
+        <dt>Price</dt>
+        <dd>{{ provider.priceTo === 0 ? 'Free' : '$' + provider.priceFrom + ' to $' + provider.priceTo }}</dd>
+        <dt>Sessions</dt>
+        <dd>{{ provider.delivery }}</dd>
+        <dt>Contact</dt>
+        <dd>{{ provider.contact }}</dd>
+      </dl>
+    </article>
   </div>
-  <article v-else-if="provider">
-    <h1>{{ provider.name }}</h1>
-    <p>{{ provider.type }}<span v-if="provider.verified"> (verified)</span></p>
-    <dl>
-      <dt>Province</dt>
-      <dd>{{ provider.province }}</dd>
-      <dt>Languages</dt>
-      <dd>{{ provider.languages.join(', ') }}</dd>
-      <dt>Price</dt>
-      <dd>
-        {{
-          provider.priceTo === 0 ? 'Free' : '$' + provider.priceFrom + ' to $' + provider.priceTo
-        }}
-      </dd>
-      <dt>Sessions</dt>
-      <dd>{{ provider.delivery }}</dd>
-      <dt>Contact</dt>
-      <dd>{{ provider.contact }}</dd>
-    </dl>
-  </article>
 </template>

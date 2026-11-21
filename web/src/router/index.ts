@@ -11,6 +11,7 @@ import LoginView from '@/views/LoginView.vue'
 import ChatRoomView from '@/views/ChatRoomView.vue'
 import VolunteerQueueView from '@/views/VolunteerQueueView.vue'
 import ChatWaiting from '@/views/ChatWaiting.vue'
+import ProfileView from '@/views/ProfileView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -29,7 +30,7 @@ const router = createRouter({
       path: '/providers/:id',
       name: 'provider-detail',
       component: ProviderDetailView,
-      props: true
+      props: true,
     },
     {
       path: '/help',
@@ -42,6 +43,12 @@ const router = createRouter({
       component: RegisterView,
     },
     {
+      path: '/profile',
+      name: 'profile',
+      component: ProfileView,
+      meta: { requiresAuth: true },
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
       component: NotFoundView,
@@ -49,28 +56,36 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: LoginView
+      component: LoginView,
     },
     {
       path: '/chat/waiting',
       name: 'chat-waiting',
       component: ChatWaiting,
-      meta: { requiresAuth: true, roles: ['MEMBER'] }
+      meta: { requiresAuth: true, roles: ['MEMBER'] },
     },
     {
       path: '/chat/:id',
       name: 'chat-room',
       component: ChatRoomView,
       props: true,
-      meta: { requiresAuth: true, roles: ['MEMBER', 'VOLUNTEER'] }
+      meta: { requiresAuth: true, roles: ['MEMBER', 'VOLUNTEER'] },
     },
     {
       path: '/volunteer',
       name: 'volunteer-queue',
       component: VolunteerQueueView,
-      meta: { requiresAuth: true, roles: ['VOLUNTEER'], requiresApproved: true }
-    }
+      meta: { requiresAuth: true, roles: ['VOLUNTEER'], requiresApproved: true },
+    },
   ],
+  scrollBehavior(to) {
+    if (to.hash)
+      return {
+        el: to.hash,
+        behavior: 'smooth',
+      }
+    return { top: 0 }
+  },
 })
 
 declare module 'vue-router' {
